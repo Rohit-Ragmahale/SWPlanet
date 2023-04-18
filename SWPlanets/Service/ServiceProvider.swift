@@ -23,7 +23,7 @@ extension ServiceProvider {
             var index: Int16 = 0
             if let planet: Planet = Entity<Planet>.create(onContext: workerContext) {
                 planet.name = planetDetails.name
-                planet.id = index
+                //planet.id = index
                 index = index + 1
             }
         }

@@ -20,11 +20,14 @@ struct PlanetListView: View {
             .listStyle(PlainListStyle())
         }
         .padding()
+        .onAppear {
+            planetListViewModel.getPlanetData()
+        }
     }
 }
 
 struct PlanetListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetListView(planetListViewModel: PlanetListViewModel())
+        PlanetListView(planetListViewModel: PlanetListViewModel(serviceProvider: OnlinePlanetServiceProvider()))
     }
 }

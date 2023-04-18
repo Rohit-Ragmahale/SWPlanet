@@ -16,6 +16,9 @@
 		43DDE0BE29EED3C4009C3635 /* PlanetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE0BD29EED3C4009C3635 /* PlanetListView.swift */; };
 		43DDE0C129EED3EE009C3635 /* PlanetListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE0C029EED3EE009C3635 /* PlanetListViewModel.swift */; };
 		43DDE0C329EED424009C3635 /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE0C229EED424009C3635 /* Planet.swift */; };
+		43DDE0C529EED697009C3635 /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE0C429EED697009C3635 /* ServiceProvider.swift */; };
+		43DDE0C729EED6CA009C3635 /* OnlineServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE0C629EED6CA009C3635 /* OnlineServiceProvider.swift */; };
+		43DDE0C929EEE0A3009C3635 /* PlanetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE0C829EEE0A3009C3635 /* PlanetList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		43DDE0BD29EED3C4009C3635 /* PlanetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListView.swift; sourceTree = "<group>"; };
 		43DDE0C029EED3EE009C3635 /* PlanetListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetListViewModel.swift; sourceTree = "<group>"; };
 		43DDE0C229EED424009C3635 /* Planet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		43DDE0C429EED697009C3635 /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		43DDE0C629EED6CA009C3635 /* OnlineServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineServiceProvider.swift; sourceTree = "<group>"; };
+		43DDE0C829EEE0A3009C3635 /* PlanetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				43DDE0C229EED424009C3635 /* Planet.swift */,
+				43DDE0C829EEE0A3009C3635 /* PlanetList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +168,8 @@
 		43DDE0BC29EED3A4009C3635 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				43DDE0C429EED697009C3635 /* ServiceProvider.swift */,
+				43DDE0C629EED6CA009C3635 /* OnlineServiceProvider.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -304,6 +313,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				43DDE09029EED0F2009C3635 /* SWPlanetsApp.swift in Sources */,
+				43DDE0C729EED6CA009C3635 /* OnlineServiceProvider.swift in Sources */,
+				43DDE0C929EEE0A3009C3635 /* PlanetList.swift in Sources */,
+				43DDE0C529EED697009C3635 /* ServiceProvider.swift in Sources */,
 				43DDE0C129EED3EE009C3635 /* PlanetListViewModel.swift in Sources */,
 				43DDE0BE29EED3C4009C3635 /* PlanetListView.swift in Sources */,
 				43DDE0C329EED424009C3635 /* Planet.swift in Sources */,

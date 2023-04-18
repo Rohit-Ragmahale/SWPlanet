@@ -18,13 +18,15 @@ struct PlanetListView: View {
                 }
             }
             .listStyle(PlainListStyle())
+            Spacer()
+            HStack {
+                Spacer()
+                planetListViewModel.isOnline ? Text("Online") : Text("Offline")
+                Spacer()
+            }
+            .background(planetListViewModel.isOnline ? .green : .gray)
         }
-        .background(planetListViewModel.isOnline ? .green : .gray)
-        .padding()
-        .onAppear {
-            planetListViewModel.startNetworkObservation()
-            planetListViewModel.getPlanetData()
-        }
+        
     }
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 struct SWPlanetsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            PlanetListView(planetListViewModel: PlanetListViewModel())
         }
     }
 }

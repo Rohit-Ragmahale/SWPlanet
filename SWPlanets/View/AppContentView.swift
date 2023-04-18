@@ -11,7 +11,7 @@ struct AppContentView: View {
     @ObservedObject var planetListViewModel: PlanetListViewModel
     
     var body: some View {
-        ZStack {
+        VStack {
             if planetListViewModel.isNetworkLoadingData {
                 LoadingView(tintColor: .black, scaleSize: 2.0).padding(.bottom,50)
             } else {

@@ -26,6 +26,7 @@
 		43DDE0DB29EF06E6009C3635 /* PlanetStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE0D929EF06E6009C3635 /* PlanetStore.xcdatamodeld */; };
 		43DDE11829EF1222009C3635 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE11729EF1222009C3635 /* Entity.swift */; };
 		43DDE11A29EF1A5B009C3635 /* PlanetDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE11929EF1A5B009C3635 /* PlanetDetails.swift */; };
+		43DDE12129EF2869009C3635 /* NetworkStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DDE12029EF2869009C3635 /* NetworkStatusView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		43DDE11729EF1222009C3635 /* Entity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entity.swift; sourceTree = "<group>"; };
 		43DDE11929EF1A5B009C3635 /* PlanetDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanetDetails.swift; sourceTree = "<group>"; };
 		43DDE11F29EF1FCA009C3635 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		43DDE12029EF2869009C3635 /* NetworkStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkStatusView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				43DDE0D329EF0279009C3635 /* AppContentView.swift */,
 				43DDE0BD29EED3C4009C3635 /* PlanetListView.swift */,
+				43DDE12029EF2869009C3635 /* NetworkStatusView.swift */,
 				43DDE0D129EEFED9009C3635 /* LoadingView.swift */,
 			);
 			path = View;
@@ -371,6 +374,7 @@
 				43DDE0BE29EED3C4009C3635 /* PlanetListView.swift in Sources */,
 				43DDE0CB29EEE7FB009C3635 /* OfflinePlanetServiceProvider.swift in Sources */,
 				43DDE11A29EF1A5B009C3635 /* PlanetDetails.swift in Sources */,
+				43DDE12129EF2869009C3635 /* NetworkStatusView.swift in Sources */,
 				43DDE0CE29EEEC09009C3635 /* NetworkMonitor.swift in Sources */,
 				43DDE0DB29EF06E6009C3635 /* PlanetStore.xcdatamodeld in Sources */,
 			);

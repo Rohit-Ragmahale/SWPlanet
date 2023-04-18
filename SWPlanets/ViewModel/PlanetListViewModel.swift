@@ -15,6 +15,7 @@ class PlanetListViewModel: ObservableObject {
     @Published var isNetworkLoadingData: Bool = false
     @Published var planetList: [PlanetDetails] = []
     @Published var isOnline: Bool = false
+    @Published var networkStatusMessage: String = ""
 
     init(serviceProvider: ServiceProvider, offlineServiceProvider: ServiceProvider, networkMonitor: NetworkMonitoring) {
         self.offlineServiceProvider = offlineServiceProvider
@@ -26,10 +27,11 @@ class PlanetListViewModel: ObservableObject {
     @objc func networkStatusUpdated() {
         DispatchQueue.main.async {
             if self.isOnline != self.networkMonitor.isConnected {
+                debugPrint("Status Change Detected")
                 self.isOnline = self.networkMonitor.isConnected
+                self.networkStatusMessage = self.networkMonitor.statusMesssage
                 self.getPlanetData()
             }
-            
         }
     }
 

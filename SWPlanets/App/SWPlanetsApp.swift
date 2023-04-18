@@ -15,7 +15,8 @@ struct SWPlanetsApp: App {
                             PlanetListViewModel(
                                 serviceProvider: OnlinePlanetServiceProvider.shared,
                                 offlineServiceProvider: OfflinePlanetServiceProvider.shared,
-                                networkMonitor: NetworkMonitor.shared))
+                                networkMonitor: NetworkMonitor.shared)
+            )
         }
     }
 }

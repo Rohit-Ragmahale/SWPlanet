@@ -19,7 +19,7 @@ struct OnlinePlanetServiceProvider: ServiceProvider {
     }
 
     func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?)-> Void)) {
-  
+        debugPrint("Fetching list from Online Service Provider")
         guard let url = URL(string: planetURL) else {
             return
         }

@@ -19,12 +19,8 @@ struct PlanetListView: View {
             }
             .listStyle(PlainListStyle())
             Spacer()
-            HStack {
-                Spacer()
-                planetListViewModel.isOnline ? Text("Online") : Text("Offline")
-                Spacer()
-            }
-            .background(planetListViewModel.isOnline ? .green : .gray)
+            NetworkStatusView(nonetworkStatusMessage: $planetListViewModel.networkStatusMessage, isOnline: $planetListViewModel.isOnline)
+            
         }
         
     }

@@ -39,7 +39,6 @@ extension Notification.Name {
     static let networkConnectivityStatus = Notification.Name(rawValue: "networkConnectivityStatusChanged")
 }
 
-let isConnectedStatusKey = "isConnected"
 
 final class NetworkMonitor: NetworkMonitoring {
     static let shared = NetworkMonitor()
@@ -47,7 +46,7 @@ final class NetworkMonitor: NetworkMonitoring {
     private let monitoringQueue = DispatchQueue(label: "NetworkConnectivityMonitorQueue")
     private let monitor: NWPathMonitor
     private(set) var isConnected = false
-    private(set)var statusMesssage: String = ""
+    private(set)var statusMesssage: String = "Offline"
 
     private init() {
         monitor = NWPathMonitor()

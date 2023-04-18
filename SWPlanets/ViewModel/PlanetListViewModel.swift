@@ -20,6 +20,7 @@ class PlanetListViewModel: ObservableObject {
         self.dataProvider = serviceProvider
         self.networkMonitor = networkMonitor
         self.isOnline = networkMonitor.isConnected
+        self.networkStatusMessage = networkMonitor.statusMesssage
     }
 
     @objc func networkStatusUpdated() {

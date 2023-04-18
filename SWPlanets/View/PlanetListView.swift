@@ -12,9 +12,14 @@ struct PlanetListView: View {
 
     var body: some View {
         VStack {
+            HStack {
+                Text("Star War Planet List")
+                    .font(.headline)
+            }
             List{
                 ForEach($planetListViewModel.planetList, id: \.self) { planet in
                     Text("\(planet.name.wrappedValue)")
+                        .font(.title2)
                 }
             }
             .listStyle(PlainListStyle())

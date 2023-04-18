@@ -13,7 +13,9 @@ struct NetworkStatusView: View {
     var body: some View {
         HStack {
             Spacer()
-            isOnline ? Text("Online") : Text(nonetworkStatusMessage)
+            isOnline ?
+            Text("Online").padding(5) :
+            Text(nonetworkStatusMessage).padding(5)
             Spacer()
         }.background(isOnline ? .green : .gray)
     }

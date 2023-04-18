@@ -21,7 +21,7 @@ final class NetworkMonitor: NetworkMonitoring {
     private let monitoringQueue = DispatchQueue(label: "NetworkConnectivityMonitorQueue")
     private let monitor: NWPathMonitor
     private(set) var isConnected = false
-    private(set)var statusMesssage: String = "Offline"
+    private(set)var statusMesssage: String = ""
 
     private init() {
         monitor = NWPathMonitor()

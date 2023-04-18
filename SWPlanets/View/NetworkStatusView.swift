@@ -15,7 +15,7 @@ struct NetworkStatusView: View {
             Spacer()
             isOnline ?
             Text("Online").padding(5) :
-            Text(nonetworkStatusMessage).padding(5)
+            Text("Offline:" +  nonetworkStatusMessage).padding(5)
             Spacer()
         }.background(isOnline ? .green : .gray)
     }

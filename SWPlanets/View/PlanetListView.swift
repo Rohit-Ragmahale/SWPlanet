@@ -19,8 +19,10 @@ struct PlanetListView: View {
             }
             .listStyle(PlainListStyle())
         }
+        .background(planetListViewModel.isOnline ? .green : .gray)
         .padding()
         .onAppear {
+            planetListViewModel.startNetworkObservation()
             planetListViewModel.getPlanetData()
         }
     }
@@ -28,6 +30,6 @@ struct PlanetListView: View {
 
 struct PlanetListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetListView(planetListViewModel: PlanetListViewModel(serviceProvider: OnlinePlanetServiceProvider()))
+        PlanetListView(planetListViewModel: PlanetListViewModel(serviceProvider: OnlinePlanetServiceProvider.shared, offlineServiceProvider: OfflinePlanetServiceProvider(), networkMonitor: NetworkMonitor.shared))
     }
 }

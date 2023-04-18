@@ -7,20 +7,20 @@
 
 import Foundation
 
-private let planetURL = "https://swapi.dev/api/planets/?page="
+private let planetURL = "https://swapi.dev/api/planets/?page=1"
 
 struct OnlinePlanetServiceProvider: ServiceProvider {
-    
+    static let shared =  OnlinePlanetServiceProvider()
+
     let urlSession: URLSession
     
-    init() {
+    private init() {
         urlSession = URLSession(configuration: .default)
     }
 
-    func getPlanetList(pageId: String, completionHandler: @escaping ((PlanetList?, ServiceErrors?)-> Void)) {
-        let pageUrl = planetURL + pageId
-        
-        guard let url = URL(string: pageUrl) else {
+    func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?)-> Void)) {
+  
+        guard let url = URL(string: planetURL) else {
             return
         }
         
@@ -45,8 +45,6 @@ struct OnlinePlanetServiceProvider: ServiceProvider {
             } catch {
                 completionHandler(nil, .dataDecodingError)
             }
-
-            
         }.resume()
     }
 }

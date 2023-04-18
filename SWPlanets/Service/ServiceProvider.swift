@@ -9,7 +9,7 @@ import Foundation
 
 
 protocol ServiceProvider {
-    func getPlanetList(pageId: String, completionHandler: @escaping ((PlanetList?, ServiceErrors?)-> Void))
+    func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?)-> Void))
 }
 
 enum ServiceErrors: Error {

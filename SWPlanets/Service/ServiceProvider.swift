@@ -20,8 +20,11 @@ extension ServiceProvider {
         let workerContext = CoreDataStack.shared.newWorkerContext()
         Entity<Planet>.deleteAllObjectsOfType(predicate: nil, onContext: workerContext)
         for planetDetails in planets {
+            var index: Int16 = 0
             if let planet: Planet = Entity<Planet>.create(onContext: workerContext) {
                 planet.name = planetDetails.name
+                planet.id = index
+                index = index + 1
             }
         }
         CoreDataStack.shared.saveContext(context: workerContext)
@@ -30,5 +33,6 @@ extension ServiceProvider {
 
 enum ServiceErrors: Error {
     case serviceError
+    case dataError
     case dataDecodingError
 }

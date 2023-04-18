@@ -34,7 +34,7 @@ struct OnlinePlanetService: DataServiceProvider {
             }
             
             guard let data = data else {
-                completionHandler(nil, .serviceError)
+                completionHandler(nil, .dataError)
                 return
             }
             do {

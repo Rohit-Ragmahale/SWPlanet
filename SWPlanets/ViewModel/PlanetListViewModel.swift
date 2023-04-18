@@ -41,9 +41,9 @@ class PlanetListViewModel: ObservableObject {
     func getPlanetData() {
         isNetworkLoadingData = true
         dataProvider.getPlanetList(completionHandler: { planetList, error in
-            if let planetList = planetList {
-                DispatchQueue.main.async {
-                    self.isNetworkLoadingData = false
+            DispatchQueue.main.async {
+                self.isNetworkLoadingData = false
+                if let planetList = planetList {
                     self.planetList = planetList.results
                     if self.isOnline {
                         self.dataProvider.savePlanetList(planets: self.planetList)

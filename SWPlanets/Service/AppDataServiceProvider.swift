@@ -19,6 +19,7 @@ class AppDataServiceProvider: ServiceProvider {
     }
 
     func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?) -> Void)) {
+        debugPrint("AppDataServiceProvider: \(networkMonitor.isConnected)")
         networkMonitor.isConnected ?
         onlineServiceProvider.getPlanetList(completionHandler: completionHandler) :
         offlineServiceProvider.getPlanetList(completionHandler: completionHandler)

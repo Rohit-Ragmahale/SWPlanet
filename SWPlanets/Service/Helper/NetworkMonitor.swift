@@ -55,12 +55,14 @@ final class NetworkMonitor: NetworkMonitoring {
 
     func startMonitoring() {
         monitor.pathUpdateHandler = {[weak self] newPath in
-            self?.isConnected = newPath.status == .satisfied
-            self?.statusMesssage = newPath.unsatisfiedReason.description()
-            debugPrint("Network status changed : \(newPath.status)")
-            debugPrint("Reason : \(newPath.unsatisfiedReason.description())")
-            
-            NotificationCenter.default.post(name: .networkConnectivityStatus, object: nil )
+            DispatchQueue.main.async {
+                self?.isConnected = newPath.status == .satisfied
+                self?.statusMesssage = newPath.unsatisfiedReason.description()
+                debugPrint("Network status changed : \(newPath.status)")
+                debugPrint("Reason : \(newPath.unsatisfiedReason.description())")
+                
+                NotificationCenter.default.post(name: .networkConnectivityStatus, object: nil )
+            }
         }
         monitor.start(queue: monitoringQueue)
     }

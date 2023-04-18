@@ -11,7 +11,11 @@ import SwiftUI
 struct SWPlanetsApp: App {
     var body: some Scene {
         WindowGroup {
-            AppContentView(planetListViewModel: PlanetListViewModel(serviceProvider: OnlinePlanetServiceProvider.shared, offlineServiceProvider: OfflinePlanetServiceProvider(), networkMonitor: NetworkMonitor.shared))
+            AppContentView(planetListViewModel:
+                            PlanetListViewModel(
+                                serviceProvider: OnlinePlanetServiceProvider.shared,
+                                offlineServiceProvider: OfflinePlanetServiceProvider.shared,
+                                networkMonitor: NetworkMonitor.shared))
         }
     }
 }

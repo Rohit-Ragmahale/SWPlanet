@@ -7,9 +7,22 @@
 
 import Foundation
 
-
 protocol ServiceProvider {
     func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?)-> Void))
+    func savePlanetList(planets: [PlanetDetails])
+}
+
+extension ServiceProvider {
+    func savePlanetList(planets: [PlanetDetails]) {
+        let workerContext = CoreDataStack.shared.newWorkerContext()
+        Entity<Planet>.deleteAllObjectsOfType(predicate: nil, onContext: workerContext)
+        for planetDetails in planets {
+            if let planet: Planet = Entity<Planet>.create(onContext: workerContext) {
+                planet.name = planetDetails.name
+            }
+        }
+        CoreDataStack.shared.saveContext(context: workerContext)
+    }
 }
 
 enum ServiceErrors: Error {

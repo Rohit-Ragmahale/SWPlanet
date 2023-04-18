@@ -13,7 +13,7 @@ class PlanetListViewModel: ObservableObject {
     let networkMonitor: NetworkMonitoring
     
     @Published var isNetworkLoadingData: Bool = false
-    @Published var planetList: [Planet] = []
+    @Published var planetList: [PlanetDetails] = []
     @Published var isOnline: Bool = false
 
     init(serviceProvider: ServiceProvider, offlineServiceProvider: ServiceProvider, networkMonitor: NetworkMonitoring) {
@@ -45,6 +45,9 @@ class PlanetListViewModel: ObservableObject {
                 DispatchQueue.main.async {
                     self.isNetworkLoadingData = false
                     self.planetList = planetList.results
+                    if self.isOnline {
+                        self.serviceProvider.savePlanetList(planets: self.planetList)
+                    }
                 }
             }
         }

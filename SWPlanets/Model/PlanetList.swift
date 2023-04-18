@@ -8,5 +8,5 @@
 import Foundation
 
 struct PlanetList: Decodable {
-    let results: [Planet]
+    let results: [PlanetDetails]
 }

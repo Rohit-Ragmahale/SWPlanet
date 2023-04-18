@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import CoreData
 
 struct OfflinePlanetServiceProvider: ServiceProvider {
     static let shared =  OfflinePlanetServiceProvider()
+     
+    private init() {}
 
     func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?) -> Void)) {
-        completionHandler(PlanetList(results: [Planet(name: "Tatooine"), Planet(name: "Tatooine2"), Planet(name: "Tatooine3")]), nil)
+        let list = Entity<Planet>.fetch(onContext: CoreDataStack.shared.mainContext())
+        let planetDetailsList = list.map { planet in
+            PlanetDetails(name: planet.name ?? "")
+        }
+        completionHandler(PlanetList(results: planetDetailsList), nil)
     }
 }

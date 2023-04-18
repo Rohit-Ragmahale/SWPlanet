@@ -35,7 +35,7 @@ final class NetworkMonitor: NetworkMonitoring {
     func startMonitoring() {
         monitor.pathUpdateHandler = {[weak self] newPath in
             self?.isConnected = newPath.status != .unsatisfied
-            print("network status changed \(self?.isConnected)")
+            debugPrint("Network status changed: \(newPath.status != .unsatisfied)")
             NotificationCenter.default.post(name: .networkConnectivityStatus, object: nil )
         }
         monitor.start(queue: monitoringQueue)

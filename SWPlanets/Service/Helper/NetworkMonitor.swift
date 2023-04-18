@@ -15,31 +15,6 @@ protocol NetworkMonitoring {
     var statusMesssage: String {get}
 }
 
-extension NWPath.UnsatisfiedReason {
-    func description() -> String {
-        switch self {
-        case .notAvailable:
-            return "No reason is given"
-
-        case .cellularDenied:
-            return "The user has disabled cellular"
-
-        case .wifiDenied:
-            return "The user has disabled Wi-Fi"
-
-        case .localNetworkDenied:
-            return "The user has disabled local network access"
-
-        @unknown default:
-            return "Offline"
-        }
-    }
-}
-extension Notification.Name {
-    static let networkConnectivityStatus = Notification.Name(rawValue: "networkConnectivityStatusChanged")
-}
-
-
 final class NetworkMonitor: NetworkMonitoring {
     static let shared = NetworkMonitor()
 
@@ -73,7 +48,5 @@ final class NetworkMonitor: NetworkMonitoring {
     deinit {
         stopMonitoring()
     }
-    
-    
 }
     

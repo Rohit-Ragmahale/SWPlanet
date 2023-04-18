@@ -8,11 +8,8 @@
 import Foundation
 import CoreData
 
-struct OfflinePlanetServiceProvider: ServiceProvider {
-    static let shared =  OfflinePlanetServiceProvider()
-     
-    private init() {}
-
+struct OfflinePlanetService: DataServiceProvider {
+ 
     func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?) -> Void)) {
         debugPrint("Fetching list from Offline Service Provider")
         let list = Entity<Planet>.fetch(onContext: CoreDataStack.shared.mainContext())

@@ -28,6 +28,10 @@ struct PlanetListView: View {
 
 struct PlanetListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetListView(planetListViewModel: PlanetListViewModel(serviceProvider: OnlinePlanetServiceProvider.shared, offlineServiceProvider: OfflinePlanetServiceProvider.shared, networkMonitor: NetworkMonitor.shared))
+        PlanetListView(
+            planetListViewModel: PlanetListViewModel(serviceProvider:
+                                                        AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService(), offliene: OfflinePlanetService()),
+                                                     networkMonitor: NetworkMonitor.shared)
+        )
     }
 }

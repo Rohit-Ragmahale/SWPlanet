@@ -7,8 +7,11 @@
 
 import Foundation
 
-protocol ServiceProvider {
+protocol DataServiceProvider {
     func getPlanetList(completionHandler: @escaping ((PlanetList?, ServiceErrors?)-> Void))
+}
+
+protocol ServiceProvider: DataServiceProvider {
     func savePlanetList(planets: [PlanetDetails])
 }
 

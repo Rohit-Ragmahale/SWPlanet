@@ -9,12 +9,11 @@ import Foundation
 
 private let planetURL = "https://swapi.dev/api/planets/?page=1"
 
-struct OnlinePlanetServiceProvider: ServiceProvider {
-    static let shared =  OnlinePlanetServiceProvider()
+struct OnlinePlanetService: DataServiceProvider {
 
     let urlSession: URLSession
     
-    private init() {
+    init() {
         urlSession = URLSession(configuration: .default)
     }
 

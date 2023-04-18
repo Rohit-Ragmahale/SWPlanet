@@ -12,10 +12,11 @@ struct SWPlanetsApp: App {
     var body: some Scene {
         WindowGroup {
             AppContentView(planetListViewModel:
-                            PlanetListViewModel(
-                                serviceProvider: OnlinePlanetServiceProvider.shared,
-                                offlineServiceProvider: OfflinePlanetServiceProvider.shared,
-                                networkMonitor: NetworkMonitor.shared)
+                            PlanetListViewModel(serviceProvider:
+                                                    AppDataServiceProvider(networkMonitor:NetworkMonitor.shared,
+                                                                           online: OnlinePlanetService(),
+                                                                           offliene: OfflinePlanetService()),
+                                                networkMonitor: NetworkMonitor.shared)
             )
         }
     }

@@ -8,8 +8,7 @@
 import Foundation
 
 class PlanetListViewModel: ObservableObject {
-    let serviceProvider: ServiceProvider
-    let offlineServiceProvider: ServiceProvider
+    let dataProvider: ServiceProvider
     let networkMonitor: NetworkMonitoring
     
     @Published var isNetworkLoadingData: Bool = false
@@ -17,9 +16,8 @@ class PlanetListViewModel: ObservableObject {
     @Published var isOnline: Bool = false
     @Published var networkStatusMessage: String = ""
 
-    init(serviceProvider: ServiceProvider, offlineServiceProvider: ServiceProvider, networkMonitor: NetworkMonitoring) {
-        self.offlineServiceProvider = offlineServiceProvider
-        self.serviceProvider = serviceProvider
+    init(serviceProvider: ServiceProvider, networkMonitor: NetworkMonitoring) {
+        self.dataProvider = serviceProvider
         self.networkMonitor = networkMonitor
         self.isOnline = networkMonitor.isConnected
     }
@@ -42,19 +40,17 @@ class PlanetListViewModel: ObservableObject {
     
     func getPlanetData() {
         isNetworkLoadingData = true
-        let completionHandler: ((PlanetList?, ServiceErrors?) -> Void)  = { planetList, error in
+        dataProvider.getPlanetList(completionHandler: { planetList, error in
             if let planetList = planetList {
                 DispatchQueue.main.async {
                     self.isNetworkLoadingData = false
                     self.planetList = planetList.results
                     if self.isOnline {
-                        self.serviceProvider.savePlanetList(planets: self.planetList)
+                        self.dataProvider.savePlanetList(planets: self.planetList)
                     }
                 }
             }
-        }
-    
-        isOnline ? serviceProvider.getPlanetList(completionHandler: completionHandler) : offlineServiceProvider.getPlanetList(completionHandler: completionHandler)
+        })
     }
     
     deinit {

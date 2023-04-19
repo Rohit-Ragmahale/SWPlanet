@@ -2,7 +2,7 @@
 
 Simple application written in SwiftUI to demonstrate following things:
 
-* Build UI using SwiftUI
+* Universal using SwiftUI
 * Manage Data in Online and Offline mode:
   * Online data retrival using URLSession
   * Offline data storage using CoreData 

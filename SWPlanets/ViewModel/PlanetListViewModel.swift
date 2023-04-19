@@ -7,6 +7,16 @@
 
 import Foundation
 
+/// ViewModel for Planet list view
+///
+/// ```
+/// init(serviceProvider: ServiceProvider, networkMonitor: NetworkMonitoring)
+/// ```
+///
+/// - Parameters
+///     - serviceProvider: online/offline data provider service
+///     - networkMonitor: network status monitor
+///
 class PlanetListViewModel: ObservableObject {
     let dataProvider: ServiceProvider
     let networkMonitor: NetworkMonitoring

@@ -43,7 +43,7 @@ struct PlanetListView_Previews: PreviewProvider {
     static var previews: some View {
         PlanetListView(
             planetListViewModel: PlanetListViewModel(serviceProvider:
-                                                        AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService(), offliene: OfflinePlanetService()),
+                                                        AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService(), offline: OfflinePlanetService()),
                                                      networkMonitor: NetworkMonitor.shared)
         )
     }

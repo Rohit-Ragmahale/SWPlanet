@@ -15,7 +15,7 @@ final class AppDataServiceProviderTests: XCTestCase {
     func testGetDataOnline() throws {
         // When
         networkMonitor.isConnected = true
-        let appDataServiceProvider = AppDataServiceProvider(networkMonitor: networkMonitor, online: onlineService, offliene: offlineService)
+        let appDataServiceProvider = AppDataServiceProvider(networkMonitor: networkMonitor, online: onlineService, offline: offlineService)
         let expectation = expectation(description: "Got Planet list")
         
         // if
@@ -33,7 +33,7 @@ final class AppDataServiceProviderTests: XCTestCase {
     func testGetDataOffline() throws {
         // When
         networkMonitor.isConnected = false
-        let appDataServiceProvider = AppDataServiceProvider(networkMonitor: networkMonitor, online: onlineService, offliene: offlineService)
+        let appDataServiceProvider = AppDataServiceProvider(networkMonitor: networkMonitor, online: onlineService, offline: offlineService)
         let expectation = expectation(description: "Got Planet list")
         
         // if

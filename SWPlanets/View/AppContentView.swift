@@ -27,6 +27,6 @@ struct AppContentView: View {
 
 struct AppContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AppContentView(planetListViewModel: PlanetListViewModel(serviceProvider: AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService(), offliene: OfflinePlanetService()), networkMonitor: NetworkMonitor.shared))
+        AppContentView(planetListViewModel: PlanetListViewModel(serviceProvider: AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService(), offline: OfflinePlanetService()), networkMonitor: NetworkMonitor.shared))
     }
 }

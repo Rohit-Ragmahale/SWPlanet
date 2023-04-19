@@ -3,7 +3,7 @@
 Simple application written in SwiftUI to demonstrate following things:
 
 * Build UI using SwiftUI
-* Manage Data in Online and Offline mode
+* Manage Data in Online and Offline mode:
   * Online data retrival using URLSession
   * Offline data storage using CoreData 
 * NWPathMonitor used for checking network status
@@ -16,6 +16,9 @@ Simple application written in SwiftUI to demonstrate following things:
 * Application is storing imformation that is required for display purpose. More information can be stored as we add more features to application.
 * Planet list items can have navigation feature to display more information regarding planet.
 * UI Test cases can be added to test UI design.
+* Application Security features:
+  * Add SSL Pinning to secure network communication
+  * Add protection for offline data (can be encrypted)
 
 
 # App Screens

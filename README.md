@@ -9,8 +9,14 @@ Simple application written in SwiftUI to demonstrate following things:
 * NWPathMonitor used for checking network status
 * App is Designed considering MVVM design pattern
 * Added Unit Test cases for ViewModel and AppDataService
-
 * No external framework used
+
+# Recommendations for future features and improvements
+* App can be made tab based application where we can show data like people, planet, species,  from https://swapi.dev/api/
+* Application is storing imformation that is required for display purpose. More information can be stored as we add more features to application.
+* Planet list items can have navigation feature to display more information regarding planet.
+* UI Test cases can be added to test UI design.
+
 
 # App Screens
 

@@ -20,8 +20,7 @@ struct AppContentView: View {
         }
         .padding()
         .onAppear {
-            planetListViewModel.startNetworkObservation()
-            planetListViewModel.getPlanetData()
+            planetListViewModel.viewDidAppear()
         }
     }
 }

@@ -34,12 +34,17 @@ class PlanetListViewModel: ObservableObject {
         }
     }
 
-    func startNetworkObservation() {
+    func viewDidAppear() {
+        startNetworkObservation()
+        getPlanetData()
+    }
+
+    private func startNetworkObservation() {
         networkMonitor.startMonitoring()
         NotificationCenter.default.addObserver(self, selector: #selector(networkStatusUpdated), name: .networkConnectivityStatus, object: nil)
     }
-    
-    func getPlanetData() {
+
+    private func getPlanetData() {
         isNetworkLoadingData = true
         dataProvider.getPlanetList(completionHandler: { planetList, error in
             DispatchQueue.main.async {

@@ -16,13 +16,21 @@ struct PlanetListView: View {
                 Text("Star War Planet List")
                     .font(.headline)
             }
-            List{
-                ForEach($planetListViewModel.planetList, id: \.self) { planet in
-                    Text("\(planet.name.wrappedValue)")
-                        .font(.title2)
-                }
+            if $planetListViewModel.planetList.isEmpty {
+                Text("No data found!\nPlease check your network connection and try again.")
+                    .multilineTextAlignment(.center)
+                    .padding(10)
+                    .font(.title2)
+                    
+            } else {
+                List{
+                    ForEach($planetListViewModel.planetList, id: \.self) { planet in
+                        Text("\(planet.name.wrappedValue)")
+                            .padding(10)
+                            .font(.title2)
+                    }
+                }.listStyle(PlainListStyle())
             }
-            .listStyle(PlainListStyle())
             Spacer()
             NetworkStatusView(nonetworkStatusMessage: $planetListViewModel.networkStatusMessage, isOnline: $planetListViewModel.isOnline)
             

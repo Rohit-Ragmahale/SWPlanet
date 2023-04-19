@@ -15,12 +15,18 @@ protocol NetworkMonitoring {
     var statusMesssage: String {get}
 }
 
+/// NetworkMonitor for checking network status
+///
+/// ```
+/// NetworkMonitor.shared
+/// ```
+///
 final class NetworkMonitor: NetworkMonitoring {
     static let shared = NetworkMonitor()
 
     private let monitoringQueue = DispatchQueue(label: "NetworkConnectivityMonitorQueue")
     private let monitor: NWPathMonitor
-    private(set) var isConnected = false
+    private(set)var isConnected = false
     private(set)var statusMesssage: String = ""
 
     private init() {

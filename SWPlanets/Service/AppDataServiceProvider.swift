@@ -14,7 +14,6 @@ import Foundation
 /// ```
 ///
 /// - Parameters
-///     - serviceProvider: online/offline data provider service
 ///     - networkMonitor: network status monitor
 ///     - online: Online data service
 ///     - offline: Offline data service

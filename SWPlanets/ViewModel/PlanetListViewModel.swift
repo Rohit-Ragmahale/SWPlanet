@@ -18,8 +18,8 @@ import Foundation
 ///     - networkMonitor: network status monitor
 ///
 class PlanetListViewModel: ObservableObject {
-    let dataProvider: ServiceProvider
-    let networkMonitor: NetworkMonitoring
+    private let dataProvider: ServiceProvider
+    private let networkMonitor: NetworkMonitoring
     
     @Published var isNetworkLoadingData: Bool = false
     @Published var planetList: [PlanetDetails] = []

@@ -24,7 +24,7 @@ final class PlanetListViewModelTests: XCTestCase {
         let expectation = expectation(description: "Got Planet list")
         
         // if
-        viewModel?.getPlanetData()
+        viewModel?.viewDidAppear()
         
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now(), execute: DispatchWorkItem(block: {
@@ -44,7 +44,7 @@ final class PlanetListViewModelTests: XCTestCase {
         let expectation = expectation(description: "Got Planet list")
         
         // if
-        viewModel?.getPlanetData()
+        viewModel?.viewDidAppear()
         
         // Then
         DispatchQueue.main.asyncAfter(deadline: .now(), execute: DispatchWorkItem(block: {

@@ -19,6 +19,7 @@ Simple application written in SwiftUI to demonstrate following things:
 * Application Security features:
   * Add SSL Pinning to secure network communication
   * Add protection for offline data (can be encrypted)
+* Add SwiftLint to application to maintain code standards
 
 
 # App Screens

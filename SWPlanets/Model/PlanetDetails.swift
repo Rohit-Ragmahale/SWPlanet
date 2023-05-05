@@ -9,4 +9,5 @@ import Foundation
 
 struct PlanetDetails: Decodable, Hashable {
     var name: String
+    var terrain: String
 }

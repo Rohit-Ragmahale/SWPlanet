@@ -12,11 +12,14 @@ struct AppContentView: View {
     
     var body: some View {
         VStack {
+            Spacer()
             if planetListViewModel.isNetworkLoadingData {
                 LoadingView(tintColor: .black, scaleSize: 2.0).padding(.bottom,50)
             } else {
-                PlanetListView(planetListViewModel: planetListViewModel)
+                PlanetListView()
             }
+            Spacer()
+            NetworkStatusView()
         }
         .padding()
         .onAppear {
@@ -27,6 +30,6 @@ struct AppContentView: View {
 
 struct AppContentView_Previews: PreviewProvider {
     static var previews: some View {
-        AppContentView(planetListViewModel: PlanetListViewModel(serviceProvider: AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService(), offline: OfflinePlanetService()), networkMonitor: NetworkMonitor.shared))
+        AppContentView(planetListViewModel: PlanetListViewModel(serviceProvider: AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService()), networkMonitor: NetworkMonitor.shared))
     }
 }

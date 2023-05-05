@@ -22,23 +22,19 @@ class PlanetListViewModel: ObservableObject {
     private let networkMonitor: NetworkMonitoring
     
     @Published var isNetworkLoadingData: Bool = false
-    @Published var planetList: [PlanetDetails] = []
-    @Published var isOnline: Bool = false
-    @Published var networkStatusMessage: String = ""
+    var networkStatusIsConnected: Bool = false
 
     init(serviceProvider: ServiceProvider, networkMonitor: NetworkMonitoring) {
         self.dataProvider = serviceProvider
         self.networkMonitor = networkMonitor
-        self.isOnline = networkMonitor.isConnected
-        self.networkStatusMessage = networkMonitor.statusMesssage
+        self.networkStatusIsConnected = networkMonitor.isConnected
     }
 
     @objc func networkStatusUpdated() {
         DispatchQueue.main.async {
-            if self.isOnline != self.networkMonitor.isConnected {
+            if self.networkStatusIsConnected != self.networkMonitor.isConnected {
                 debugPrint("Status Change Detected")
-                self.isOnline = self.networkMonitor.isConnected
-                self.networkStatusMessage = self.networkMonitor.statusMesssage
+                self.networkStatusIsConnected = self.networkMonitor.isConnected
                 self.getPlanetData()
             }
         }
@@ -46,7 +42,6 @@ class PlanetListViewModel: ObservableObject {
 
     func viewDidAppear() {
         startNetworkObservation()
-        getPlanetData()
     }
 
     private func startNetworkObservation() {
@@ -59,12 +54,6 @@ class PlanetListViewModel: ObservableObject {
         dataProvider.getPlanetList(completionHandler: { planetList, error in
             DispatchQueue.main.async {
                 self.isNetworkLoadingData = false
-                if let planetList = planetList {
-                    self.planetList = planetList.results
-                    if self.isOnline {
-                        self.dataProvider.savePlanetList(planets: self.planetList)
-                    }
-                }
             }
         })
     }

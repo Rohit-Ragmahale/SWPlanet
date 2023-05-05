@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct PlanetListView: View {
-    @ObservedObject var planetListViewModel: PlanetListViewModel
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(entity: Planet.entity(),
+                  sortDescriptors: [ NSSortDescriptor(keyPath: \Planet.name, ascending: true)],
+                  animation: .default)
+    private var planets: FetchedResults<Planet>
 
     var body: some View {
         VStack {
@@ -16,7 +20,7 @@ struct PlanetListView: View {
                 Text("Star War Planet List")
                     .font(.headline)
             }
-            if $planetListViewModel.planetList.isEmpty {
+            if planets.isEmpty {
                 Text("No data found!\nPlease check your network connection and try again.")
                     .multilineTextAlignment(.center)
                     .padding(10)
@@ -24,16 +28,18 @@ struct PlanetListView: View {
                     
             } else {
                 List{
-                    ForEach($planetListViewModel.planetList, id: \.self) { planet in
-                        Text("\(planet.name.wrappedValue)")
-                            .padding(10)
-                            .font(.title2)
+                    ForEach(planets, id: \.self) { planet in
+                        VStack(alignment: .leading) {
+                            Text("\(planet.name)")
+                                .padding(.leading, 10)
+                                .font(.title2)
+                            Text("\(planet.terrain)")
+                                .padding(.leading, 10)
+                                .font(.title3)
+                        }
                     }
                 }.listStyle(PlainListStyle())
             }
-            Spacer()
-            NetworkStatusView(nonetworkStatusMessage: $planetListViewModel.networkStatusMessage, isOnline: $planetListViewModel.isOnline)
-            
         }
         
     }
@@ -41,10 +47,6 @@ struct PlanetListView: View {
 
 struct PlanetListView_Previews: PreviewProvider {
     static var previews: some View {
-        PlanetListView(
-            planetListViewModel: PlanetListViewModel(serviceProvider:
-                                                        AppDataServiceProvider(networkMonitor: NetworkMonitor.shared, online: OnlinePlanetService(), offline: OfflinePlanetService()),
-                                                     networkMonitor: NetworkMonitor.shared)
-        )
+        PlanetListView()
     }
 }

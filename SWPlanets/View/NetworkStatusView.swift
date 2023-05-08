@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct NetworkStatusView: View {
-    @Binding var nonetworkStatusMessage: String
-    @Binding var isOnline: Bool
+    @EnvironmentObject var networkMonitor: NetworkMonitor
     var body: some View {
         HStack {
             Spacer()
-            isOnline ?
+            networkMonitor.isConnected ?
             Text("Online").padding(5) :
-            Text("Offline:" +  nonetworkStatusMessage).padding(5)
+            Text("Offline:" +  networkMonitor.statusMesssage).padding(5)
             Spacer()
-        }.background(isOnline ? .green : .gray)
+        }
+        .background(networkMonitor.isConnected ? .green : .gray)
     }
 }
 
 struct NetworkStatusView_Previews: PreviewProvider {
     static var previews: some View {
-        NetworkStatusView(nonetworkStatusMessage: .constant("offline"), isOnline: .constant(true))
+        NetworkStatusView()
     }
 }

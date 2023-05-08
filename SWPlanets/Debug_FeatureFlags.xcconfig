@@ -1,0 +1,13 @@
+//
+//  Debug_FeatureFlags.xcconfig
+//  SWPlanets
+//
+//  Created by Rohit Ragmahale on 04/05/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+DEBUG_SWIFT_ACTIVE_COMPILATION_CONDITIONS = COMPLETED_FEATURE_1 CORE_DATA_NEW
+
+SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG $(DEBUG_SWIFT_ACTIVE_COMPILATION_CONDITIONS)
